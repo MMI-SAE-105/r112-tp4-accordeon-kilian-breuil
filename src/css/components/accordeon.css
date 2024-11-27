@@ -1,3 +1,56 @@
 /**
 * Accordeon
 */
+.accordeon {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+details {
+    position: relative;
+}
+
+details[open] {
+    background-color: #f7f7f7;
+}
+details>summary {
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.accordeon-item {
+    border-bottom: 1px solid #ccc;
+}
+
+.accordeon-item:last-child {
+    border-bottom: none;
+}
+
+.accordeon-header {
+    background-color: #f7f7f7;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.accordeon-content {
+    display: none;
+    padding: 15px;
+    background-color: #fff;
+}
+
+.accordeon-content.show {
+    display: block;
+}
+.accordeon__item--active .accordeon__header {
+    background-color: #e2e2e2;
+}
+
+.accordeon__item--active .accordeon__content {
+    display: block;
+}

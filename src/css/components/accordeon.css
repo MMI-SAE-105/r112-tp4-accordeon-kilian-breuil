@@ -1,7 +1,8 @@
 .accordeon {
     display: flex;
+    flex-direction: column; /* Assurez-vous que l'accordéon soit en mode colonne */
     width: 100%;
-    max-width: 1300px; 
+    max-width: 600px;
     margin: 0 auto;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -9,15 +10,13 @@
 }
 
 .accordeon-item {
-    flex: 1;
-    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     margin-bottom: 10px;
 }
 
 .accordeon-item:last-child {
-    border-right: none;
+    border-bottom: none;
     margin-bottom: 0;
-    margin-left: 30px;
 }
 
 .accordeon-header {
@@ -29,21 +28,28 @@
 }
 
 .accordeon-content {
-    display: none;
-    padding: 15px;
+    display: none; /* Par défaut, cacher le contenu */
+    height: 0; /* Hauteur initiale 0 pour l'animation */
+    padding: 0 15px; /* Marge horizontale pour le texte */
     background-color: #fff;
+    overflow: hidden; /* Cache le contenu qui dépasse */
+    transition: height 0.5s ease-out, padding 0.3s ease-out; /* Animation de hauteur et padding */
 }
 
 .accordeon-content.show {
-    display: flex;
+    display: block; /* Afficher le contenu */
+    height: auto; /* La hauteur s'ajuste au contenu */
+    padding: 15px; /* Ajouter un padding pour l'effet de déploiement */
 }
 
 .accordeon__item--active .accordeon__header {
-    background-color: #e2e2e2;
+    background-color: #e2e2e2; /* Changer la couleur de fond de l'en-tête quand actif */
 }
 
 .accordeon__item--active .accordeon__content {
     display: block;
+    height: auto; /* La hauteur s'ajuste automatiquement */
+    padding: 15px; /* Ajoute un padding quand l'élément est ouvert */
 }
 
 .accordeon-item img {
@@ -51,6 +57,9 @@
     width: 100%;
     height: auto;
 }
+
+
+
 
 details {
     position: relative;
